@@ -1,0 +1,33 @@
+body {
+    padding: 100px;
+    text-align: center;
+}
+
+
+
+button::-moz-focus-inner {
+    border: 0;
+}
+  
+  
+
+.press {
+    padding: 15px 25px;
+    font-size: 24px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 9px #c0392b;
+    outline: unset; 
+}
+.press:hover {
+    box-shadow: 0 6px #c0392b;
+    transform: translateY(3px);
+}
+.press:active {
+    box-shadow: 0 2px #c0392b;
+    transform: translateY(7px);
+}
