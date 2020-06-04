@@ -3,13 +3,9 @@ body {
     text-align: center;
 }
 
-
-
 button::-moz-focus-inner {
-    border: 0;
+    border: none;
 }
-  
-  
 
 .press {
     padding: 15px 25px;
