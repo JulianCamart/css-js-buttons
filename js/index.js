@@ -1,10 +1,18 @@
 const app = {
     init: function () {
+        //Ripple btn
         const rippleBtn = document.querySelector('.ripple');
         rippleBtn.addEventListener('click', app.ripple);
 
-        // const downloadBtn = document.querySelector('.download');
-
+        //Download btn
+        app.downloadBtn().addEventListener('click', app.download);
+        let string = app.downloadBtn().childNodes[0].textContent;
+        app.downloadBtn().childNodes[0].textContent = "";
+        string.split('').forEach(function(c) {
+           let span = document.createElement('span');
+           span.textContent = c;
+           app.downloadBtn().childNodes[0].append(span);
+        });
     },
     ripple: function (e) {
         let x = e.clientX - e.target.offsetLeft;
@@ -17,17 +25,21 @@ const app = {
         setTimeout(() => {
             ripples.remove()
         },1000);
+    },
+    downloadBtn: function () {
+        return document.querySelector('.download');
+    },
+    download: function (e) {
+        app.downloadBtn().classList.add('loading');
+        setTimeout(() => {
+            app.downloadBtn().classList.remove('loading');
+        },8000);
     }
 }
 document.addEventListener('DOMContentLoaded', app.init);
 
-$("a b").html(function(index, html) {
-    return html.replace(/\S/g, '<span>$&</span>');
-  });
-  
-  $("a").click(function(){
-    $("a").addClass("loading");     
-    setTimeout(function(){
-    $("a").removeClass("loading"); 
-    }, 8000);
-  });
+/* @for $i from 1 through 100{
+    &:nth-of-type(#{$i}){
+        animation-delay:#{$i/70}s; //TODO en JS
+    }
+} */
